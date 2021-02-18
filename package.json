@@ -5,11 +5,17 @@
   "description": "Project 4: Evaluate a News Article with Natural Language Processing of the Udacity Front End Web Developer Nanodegree Program",
   "scripts": {
     "test": "echo 'Error: no test specified' && exit",
-    "start": "node src/server/index.js"
+    "start": "node src/server/index.js",
+    "build": "webpack"
   },
   "dependencies": {
     "express": "^4.17.1",
     "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "babel-loader": "^8.2.2"
   }
 }
