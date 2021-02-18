@@ -13,6 +13,12 @@ app.listen(8080, function () {
     console.log('App runs smoothly on port 8080');
 })
 
+// to test GET request via mockAPI
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse);
+})
+
+// home route to use built index file from dist folder
+app.get('/', function (req, res) {
+    res.sendFile('dist.index.html');
 })
