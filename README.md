@@ -6,3 +6,4 @@ This is the repository for **Project 4: Evaluate a News Article with Natural Lan
 
 ### Notes
 * using webpack-cli 4.x does currently (02/2021) not support command `webpack-dev-server` to run in script, so instead workaround `webpack serve` was used following the issue https://github.com/webpack/webpack-dev-server/issues/2029
+* as this project uses Webpack 5 the required `optimize-css-assets-webpack-plugin` was not supported anymore, changed to `css-minimizer-webpack-plugin`

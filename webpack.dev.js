@@ -10,7 +10,8 @@ module.exports = {
     entry: './src/client/index.js',
     output: {
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
+        path: path.resolve(process.cwd(), 'dist')
     },
     stats: 'verbose',
     module: {
