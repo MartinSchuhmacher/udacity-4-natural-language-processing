@@ -1,10 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
-    // show orphan modules for debuging
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
     stats: 'verbose',
     module: {
         rules: [
@@ -12,6 +16,10 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+            {
+                test: /\.scss$/,
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             }
         ]
     },
