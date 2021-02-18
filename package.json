@@ -1,4 +1,12 @@
 {
+  "name": "evaluate-with-natural-language-processing",
+  "version": "0.5",
+  "author": "Martin Schuhmacher",
+  "description": "Project 4: Evaluate a News Article with Natural Language Processing of the Udacity Front End Web Developer Nanodegree Program",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit",
+    "start": "node src/server/index.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "webpack": "^5.22.0",
