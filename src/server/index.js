@@ -7,9 +7,9 @@ dotenv.config();
 let textApi = {application_key: process.env.API_KEY};
 
 const app = express();
-
 app.use(express.static('dist'));
 
+// show directory of running server file
 console.log(__dirname);
 
 // app listens on port 8080 for incoming requests
