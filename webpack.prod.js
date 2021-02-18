@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
+    mode: 'production',
     entry: './src/client/index.js',
     // show orphan modules for debuging
-    stats: {orphanModules: true},
+    stats: 'verbose',
     module: {
         rules: [
             {
@@ -15,7 +16,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html"
         })
