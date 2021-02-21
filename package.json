@@ -1,6 +1,5 @@
 {
   "name": "evaluate-with-natural-language-processing",
-  "version": "0.5",
   "author": "Martin Schuhmacher",
   "description": "Project 4: Evaluate a News Article with Natural Language Processing of the Udacity Front End Web Developer Nanodegree Program",
   "scripts": {
