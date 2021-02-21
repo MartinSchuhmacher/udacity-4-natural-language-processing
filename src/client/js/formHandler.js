@@ -1,4 +1,4 @@
-function handleSubmit(event) {
+/* function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
@@ -14,3 +14,20 @@ function handleSubmit(event) {
 }
 
 export {handleSubmit};
+*/
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    // check if input is valid URL
+    let formText = document.getElementById('url').value;
+    const checkResult = Client.checkForUrl(formText);
+    if(checkResult) {
+        console.log("::: Starting Request :::");
+
+    }
+
+    
+
+
+}

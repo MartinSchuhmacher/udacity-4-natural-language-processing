@@ -1,13 +1,27 @@
+// dependencies
 const dotenv = require('dotenv');
 const path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+// using environment variables
 dotenv.config();
 let textApi = {application_key: process.env.API_KEY};
 
+// setup empty JS object to act as endpoint
+let projectData = {};
+
 const app = express();
 app.use(express.static('dist'));
+
+// configuring express to use body-parser as middleware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// cors for cross origin allowance
+app.use(cors());
 
 // show directory of running server file
 console.log(__dirname);
