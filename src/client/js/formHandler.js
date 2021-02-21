@@ -24,7 +24,19 @@ function handleSubmit(event) {
     const checkResult = Client.checkForUrl(formText);
     if(checkResult) {
         console.log("::: Starting Request :::");
-
+        fetch('localhost:8081/article', {
+            method: 'POST',
+            credentials: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: formText,
+        })
+        .then(res => res.json())
+        // add data handling
+    }
+    else {
+        alert('Please input a valid URL "https://..."');
     }
 
     
