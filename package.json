@@ -9,6 +9,7 @@
     "build-dev": "webpack serve --config webpack.dev.js --open"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "webpack": "^5.22.0",

@@ -5,6 +5,7 @@ const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const axios = require('axios');
 
 // using environment variables
 dotenv.config();
@@ -40,3 +41,14 @@ app.get('/test', function (req, res) {
 app.get('/', function (req, res) {
     res.sendFile('dist.index.html');
 })
+
+// GET request with axios for promised based request
+// auto parse JSON by default, no need to do extra
+axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .then(response => {
+        console.log(response.data.url);
+        console.log(response.data.explanation);
+    })
+    .catch(error => {
+        console.log('Error while GET with axios: ', error);
+    });
