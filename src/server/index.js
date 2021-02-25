@@ -18,7 +18,9 @@ const app = express();
 app.use(express.static('dist'));
 
 // configuring express to use body-parser as middleware.
+// parse URL-encoded bodies (as sent by HTML forms)
 app.use(bodyParser.urlencoded({ extended: false }));
+// parse JSON bodies (as sent by API clients)
 app.use(bodyParser.json());
 
 // cors for cross origin allowance
@@ -43,8 +45,9 @@ app.get('/', function (req, res) {
 })
 
 // GET request with axios for promised based request
-// auto parse JSON by default, no need to do extra
-app.get('/article', function () {
+// auto parse JSON by default, no need to do extra for data received from client
+app.post('/article', function (request, response) {
+    console.log(request.body.value);
     axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
         .then(res => {
             console.log(res.data.url);

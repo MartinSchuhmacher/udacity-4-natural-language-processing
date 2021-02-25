@@ -19,7 +19,16 @@ export {handleSubmit};
 function handleSubmit(event) {
     event.preventDefault();
     console.log("::: Starting Request :::");
-    fetch('http://localhost:8081/article');
+    fetch('http://localhost:8081/article', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            value: "TESTDATA"
+        })
+        }
+    );
     // check if input is valid URL
    /* let formText = document.getElementById('url').value;
     const checkResult = Client.checkForUrl(formText);
