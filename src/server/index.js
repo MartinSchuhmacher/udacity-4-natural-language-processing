@@ -44,11 +44,13 @@ app.get('/', function (req, res) {
 
 // GET request with axios for promised based request
 // auto parse JSON by default, no need to do extra
-axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
-    .then(response => {
-        console.log(response.data.url);
-        console.log(response.data.explanation);
-    })
-    .catch(error => {
-        console.log('Error while GET with axios: ', error);
-    });
+app.get('/article', function () {
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+        .then(res => {
+            console.log(res.data.url);
+            console.log(res.data.explanation);
+        })
+        .catch(error => {
+            console.log('Error while GET with axios: ', error);
+        });
+})

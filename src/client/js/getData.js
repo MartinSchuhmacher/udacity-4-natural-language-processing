@@ -1,4 +1,5 @@
 // Function to GET Web API Data
+/*
 const getUrlData = async (baseURL, zip, apiKey) => {
     const result = await fetch(`${baseURL}${zip}&appid=${apiKey}&units=imperial`);
     try {
@@ -12,3 +13,4 @@ const getUrlData = async (baseURL, zip, apiKey) => {
 }
 
 export {getUrlData};
+*/

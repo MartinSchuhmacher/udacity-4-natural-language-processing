@@ -1,4 +1,4 @@
-import {formHandler} from './js/formHandler.js';
+import {handleSubmit} from './js/formHandler.js';
 import {checkForUrl} from './js/checkForUrl.js';
 // import './styles/base.scss';
 
@@ -6,5 +6,5 @@ import {checkForUrl} from './js/checkForUrl.js';
 
 export {
     checkForUrl,
-    formHandler
+    handleSubmit
 }
