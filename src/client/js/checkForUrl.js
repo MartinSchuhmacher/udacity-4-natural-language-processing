@@ -1,5 +1,5 @@
 function checkForUrl(inputText) {
-    console.log("::: Running checkForUrl :::", inputText);
+    console.log("::: Running checkForUrl on:", inputText, " :::");
     const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/;
     const regex = new RegExp(expression);
     // match input data with reg expression

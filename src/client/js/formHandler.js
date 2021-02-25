@@ -20,6 +20,8 @@ function handleSubmit(event) {
     event.preventDefault();
     // check what text was put into the form field
     const formText = document.getElementById('url').value;
+    const checkResult = Client.checkForUrl(formText);
+    console.log("Result: " + checkResult);
     console.log("::: Starting Request :::");
     fetch('http://localhost:8081/article', { 
         method: 'POST',
