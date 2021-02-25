@@ -18,6 +18,8 @@ export {handleSubmit};
 
 function handleSubmit(event) {
     event.preventDefault();
+    // check what text was put into the form field
+    const formText = document.getElementById('url').value;
     console.log("::: Starting Request :::");
     fetch('http://localhost:8081/article', { 
         method: 'POST',
@@ -25,7 +27,7 @@ function handleSubmit(event) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            value: "TESTDATA"
+            value: formText
         })
         }
     );
