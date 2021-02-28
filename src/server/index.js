@@ -6,7 +6,19 @@ const mockAPIResponse = require('./mockAPI.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
+/*
+const https = require('follow-redirects').https;
+const fs =require('fs');
 
+const options = {
+    'method': 'POST',
+    'hostname': 'api.meaningcloud.com',
+    'path': '/sentiment-2.1?key='+textApi.application_key+'&lang=en&of=json&lang=en&url='+formUrl,
+    'headers': {
+    },
+    'maxRedirects': 20
+};
+*/
 // using environment variables
 dotenv.config();
 let textApi = {application_key: process.env.API_KEY};
@@ -48,12 +60,54 @@ app.get('/', function (req, res) {
 // auto parse JSON by default, no need to do extra for data received from client
 app.post('/article', function (request, response) {
     console.log(request.body.value);
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
-        .then(res => {
-            console.log(res.data.url);
-            console.log(res.data.explanation);
-        })
-        .catch(error => {
-            console.log('Error while GET with axios: ', error);
+    const formUrl = request.body.value;
+    //axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    axios.get('https://api.meaningcloud.com/sentiment-2.1?key='+textApi.application_key+'&of=json&lang=en&url='+formUrl)
+    .then(res => {
+        addData(res);
+        response.send(true);
+    })
+    .catch(error => {
+        console.log('Error while POST with axios: ', error);
+    });
+});
+
+function addData(response) {
+    let newData = response.data;
+    projectData = {
+        //url: formUrl,
+        model: newData.model,
+        score: newData.score_tag,
+        polarityBetween: newData.agreement,
+        subjectivity: newData.subjectivity,
+        confidence: newData.confidence,
+        irony: newData.irony
+    };
+    console.log(projectData);
+}
+
+/*
+app.post('/article2', function (request, response) {
+    console.log(request.body.value);
+    const formUrl = request.body.value;
+    const req = https.request(options, function (res) {
+        let chunks = [];
+        res.on("data", function (chunk) {
+            chunks.push(chunk);
         });
-})
+
+        res.on("end", function (chunk) {
+            let body = Buffer.concat(chunks);
+            console.log(body.toString());
+        });
+
+        res.on("error", function (error) {
+            console.log(error);
+        });
+    });
+    req.end();
+}
+*/
+
+app.get('/all', (req, res) => res.send(projectData));
+

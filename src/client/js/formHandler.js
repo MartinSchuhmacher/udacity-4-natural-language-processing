@@ -16,6 +16,7 @@
 export {handleSubmit};
 */
 
+
 function handleSubmit(event) {
     event.preventDefault();
     // check what text was put into the form field
@@ -32,7 +33,13 @@ function handleSubmit(event) {
             value: formText
         })
         }
-    );
+    )
+    .then(function() {
+        Client.getData('/all');
+    })
+};
+    
+
     // check if input is valid URL
    /* let formText = document.getElementById('url').value;
     const checkResult = Client.checkForUrl(formText);
@@ -56,6 +63,5 @@ function handleSubmit(event) {
     }
 
     */
-}
 
 export {handleSubmit};
