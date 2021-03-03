@@ -60,9 +60,9 @@ app.get('/', function (req, res) {
 // auto parse JSON by default, no need to do extra for data received from client
 app.post('/article', function (request, response) {
     console.log(request.body.value);
-    const formUrl = request.body.value;
+    projectData = {url: request.body.value};
     //axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
-    axios.get('https://api.meaningcloud.com/sentiment-2.1?key='+textApi.application_key+'&of=json&lang=en&url='+formUrl)
+    axios.get('https://api.meaningcloud.com/sentiment-2.1?key='+textApi.application_key+'&of=json&lang=en&url='+projectData.url)
     .then(res => {
         addData(res);
         response.send(true);
@@ -74,15 +74,12 @@ app.post('/article', function (request, response) {
 
 function addData(response) {
     let newData = response.data;
-    projectData = {
-        //url: formUrl,
-        model: newData.model,
-        score: newData.score_tag,
-        polarityBetween: newData.agreement,
-        subjectivity: newData.subjectivity,
-        confidence: newData.confidence,
-        irony: newData.irony
-    };
+    projectData.model = newData.model;
+    projectData.score = newData.score_tag;
+    projectData.polarityBetween = newData.agreement;
+    projectData.subjectivity = newData.subjectivity;
+    projectData.confidence = newData.confidence;
+    projectData.irony = newData.irony;
     console.log(projectData);
 }
 
