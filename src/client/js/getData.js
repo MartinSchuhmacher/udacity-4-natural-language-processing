@@ -17,8 +17,9 @@ export {getUrlData};
 //require("regenerator-runtime/runtime");
 
 async function getData(url='') {
-    const response = await fetch(url);
+    
     try {
+        const response = await fetch(url);
         const allData = await response.json();
         document.getElementById('summary').innerHTML = `URL "${allData.url}" analyzed by model "${allData.model}" gives the following results.`;
         document.getElementById('score-tag').innerHTML = `Polarity score tag: ${allData.score}`;
