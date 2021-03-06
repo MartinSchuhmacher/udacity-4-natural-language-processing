@@ -2,24 +2,11 @@
 const dotenv = require('dotenv');
 const path = require('path');
 const express = require('express');
-const mockAPIResponse = require('./mockAPI.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
-/*
-const https = require('follow-redirects').https;
-const fs =require('fs');
 
-const options = {
-    'method': 'POST',
-    'hostname': 'api.meaningcloud.com',
-    'path': '/sentiment-2.1?key='+textApi.application_key+'&lang=en&of=json&lang=en&url='+formUrl,
-    'headers': {
-    },
-    'maxRedirects': 20
-};
-*/
-// using environment variables
+// using environment variable
 dotenv.config();
 let textApi = {application_key: process.env.API_KEY};
 
@@ -41,14 +28,9 @@ app.use(cors());
 // show directory of running server file
 console.log(__dirname);
 
-// app listens on port 8080 for incoming requests
+// app listens on port 8081 for incoming requests in production mode
 app.listen(8081, function () {
     console.log('App runs smoothly on port 8081');
-})
-
-// to test GET request via mockAPI
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse);
 })
 
 // home route to use built index file from dist folder
@@ -83,28 +65,4 @@ function addData(response) {
     console.log(projectData);
 }
 
-/*
-app.post('/article2', function (request, response) {
-    console.log(request.body.value);
-    const formUrl = request.body.value;
-    const req = https.request(options, function (res) {
-        let chunks = [];
-        res.on("data", function (chunk) {
-            chunks.push(chunk);
-        });
-
-        res.on("end", function (chunk) {
-            let body = Buffer.concat(chunks);
-            console.log(body.toString());
-        });
-
-        res.on("error", function (error) {
-            console.log(error);
-        });
-    });
-    req.end();
-}
-*/
-
 app.get('/all', (req, res) => res.send(projectData));
-

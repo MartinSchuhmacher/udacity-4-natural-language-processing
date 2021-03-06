@@ -1,0 +1,29 @@
+#results {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 0 10px;
+}
+
+#summary {
+    padding: 0px 0 3px 0;
+}
+
+#score-tag {
+    padding: 3px 0 3px 0;
+}
+
+#polarity-between {
+    padding: 3px 0 3px 0;
+}
+
+#subjectivity {
+    padding: 3px 0 3px 0;
+}
+
+#confidence {
+    padding: 3px 0 3px 0;
+}
+
+#irony {
+    padding: 3px 0 0 0;
+}

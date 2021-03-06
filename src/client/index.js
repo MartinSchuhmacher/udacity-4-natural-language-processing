@@ -3,8 +3,6 @@ import {checkForUrl} from './js/checkForUrl.js';
 import {getData} from './js/getData.js';
 import './styles/style.scss';
 
-//alert("I EXIST");
-
 export {
     checkForUrl,
     handleSubmit,
