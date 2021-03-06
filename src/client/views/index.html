@@ -3,32 +3,31 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Load Fonts -->
+         <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
         <title>Evaluation with Natural Language Processing</title>
     </head>
     <body>
-        <!--header area on top-->
-        <header>
-            <div class="">
-                LOGO
-            </div>
-            <div class="">
-                NAVIGATION
-            </div>
-        </header>
         <main>
-            <section>
+            <section  class="app header">
+                Evaluation with Natural Language Processing
+            </section>
+            <section class="app">
                 <!--form to submit data-->
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="url" type="text" name="input" value="" onblur="onBlur()" placeholder="URL">
-                    <input type="submit"  name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                <form onsubmit="return Client.handleSubmit(event)">
+                    <label for="url">Enter URL for the article you wish to be analyzed</label>
+                    <div class="url-button">
+                        <input type="text" id="url" placeholder="URL..." required>
+                        <input type="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    </div>
                 </form>
             </section>
-            <section>
+            <section class="app results">
                 <!--shows result of the processing-->
-                <strong>Form results:</strong>
+                <div class="results-title">Form results:</div>
                 <div id="results">
                     <div id="summary"></div>
-                    <div id="score-tag">hi</div>
+                    <div id="score-tag"></div>
                     <div id="polarity-between"></div>
                     <div id="subjectivity"></div>
                     <div id="confidence"></div>
@@ -37,7 +36,9 @@
             </section>
         </main>
         <!--footer with additional information for the page-->
-        <p>Footer stuff</p>
+        <footer>
+            © Footer stuff, not food stuff.
+        </footer>
         <!-- adding Service Workers for supported browsers-->
         <script>
             // Check that service workers are supported
