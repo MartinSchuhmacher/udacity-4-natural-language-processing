@@ -13,7 +13,9 @@ module.exports = {
     entry: './src/client/index.js',
     output: {
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.min.js'
     },
     stats: 'verbose',
     optimization: {

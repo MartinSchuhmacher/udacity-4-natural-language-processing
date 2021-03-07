@@ -9,8 +9,10 @@ function handleSubmit(event) {
 
     // if check confirms valid URL
     if (checkResult) {
-        fetch('/article', { 
+        fetch('https://localhost:8081/article', { 
+            mode: 'cors',
             method: 'POST',
+            credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
             },

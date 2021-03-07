@@ -4,16 +4,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // necessary syntax due to documentation for CleanWebpackPlugin
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // add Workbox for working with Service Workers
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     entry: './src/client/index.js',
     output: {
         libraryTarget: 'var',
         library: 'Client',
-        path: path.resolve(process.cwd(), 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.min.js'
+    },
+    devServer: {
+        contentBase: './dist',
     },
     stats: 'verbose',
     module: {
@@ -39,7 +43,7 @@ module.exports = {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        }),
-        new WorkboxPlugin.GenerateSW()
+        })
+        //new WorkboxPlugin.GenerateSW()
     ]
 }
