@@ -12,7 +12,7 @@ This is the repository for **Project 4: Evaluate a News Article with Natural Lan
 ## Functionalities used:
 * Node.js for Webserver with Express
 * Axios for promise based requests usage together with Node.js
-* Build tool Webpack for Production and Development Environment (additional Webpack dev server)
+* Build tool Webpack for Production and Development Environment (additional Webpack dev server with proxy)
 * Jest Framework for Unit Testing
 * Service Workers for offline functionality
 * Natural Language Processing (Sentiment Analysis) for given URLs
@@ -26,11 +26,12 @@ This is the repository for **Project 4: Evaluate a News Article with Natural Lan
 * install dependencies via npm (included with Node.js) with `npm install`
 * run test script via `npm run test`
 * run development environment via `npm run build-dev` with dev server running on `localhost:8080`
+* **Remark for dev mode**: to test API calls during development mode a proxy was configured via Webpack so the command `node src/server/index.js` needs to be run in a separate command line window in the project root directory to start the express server on port 8081
 * run production environment via `npm run start` which starts express server on `localhost:8081`
 * production build can be run separately via `npm run build-prod`
 
 ### Notes
-* using webpack-cli 4.x does currently (02/2021) not support command `webpack-dev-server` to run in script, so instead workaround `webpack serve` was used following the issue https://github.com/webpack/webpack-dev-server/issues/2029
+* using webpack-cli 4.x requires beta version `webpack-dev-server@4.0.0-beta.0` to make the webpack dev server work again
 * as this project uses Webpack 5 the required `optimize-css-assets-webpack-plugin` was not supported anymore, changed to `css-minimizer-webpack-plugin`
 
 ---

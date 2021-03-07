@@ -16,9 +16,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
-    devServer: {
-        contentBase: './dist',
-    },
     stats: 'verbose',
     module: {
         rules: [
@@ -45,5 +42,13 @@ module.exports = {
             protectWebpackAssets: false
         }),
         new WorkboxPlugin.GenerateSW()
-    ]
+    ],
+    // prodividing proxy for communication during dev mode with backend server on 8081
+    devServer: {
+        open: true,
+        proxy: {
+            '/article': 'http://localhost:8081',
+            '/all': 'http://localhost:8081'
+        }
+    }
 }

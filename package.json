@@ -6,7 +6,7 @@
     "test": "jest",
     "start": "webpack --config webpack.prod.js && node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack --config webpack.dev.js && webpack serve --config webpack.dev.js --open"
+    "build-dev": "webpack --config webpack.dev.js && webpack-dev-server  --config webpack.dev.js --open"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -32,7 +32,7 @@
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
-    "webpack-dev-server": "^3.11.2",
+    "webpack-dev-server": "^4.0.0-beta.0",
     "workbox-webpack-plugin": "^6.1.1"
   }
 }
