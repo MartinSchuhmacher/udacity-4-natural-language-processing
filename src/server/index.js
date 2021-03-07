@@ -28,9 +28,9 @@ app.use(cors());
 // show directory of running server file
 console.log(__dirname);
 
-// app listens on port 8081 for incoming requests in production mode
-app.listen(8081, function () {
-    console.log('App runs smoothly on port 8081');
+// app listens on port 8080 for incoming requests in production mode
+app.listen(8080, function () {
+    console.log('App runs smoothly on port 8080');
 })
 
 // home route to use built index file from dist folder

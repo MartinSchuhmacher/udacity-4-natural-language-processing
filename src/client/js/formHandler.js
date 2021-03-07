@@ -9,7 +9,7 @@ function handleSubmit(event) {
 
     // if check confirms valid URL
     if (checkResult) {
-        fetch('http://localhost:8081/article', { 
+        fetch('/article', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
