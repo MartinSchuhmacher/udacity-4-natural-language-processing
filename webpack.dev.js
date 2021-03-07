@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // necessary syntax due to documentation for CleanWebpackPlugin
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // add Workbox for working with Service Workers
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -43,7 +43,7 @@ module.exports = {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
-        //new WorkboxPlugin.GenerateSW()
+        }),
+        new WorkboxPlugin.GenerateSW()
     ]
 }

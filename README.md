@@ -28,8 +28,6 @@ This is the repository for **Project 4: Evaluate a News Article with Natural Lan
 * run development environment via `npm run build-dev` with dev server running on `localhost:8080`
 * run production environment via `npm run start` which starts express server on `localhost:8081`
 * production build can be run separately via `npm run build-prod`
-* Deployment was tried with [Netlify](https://www.netlify.com) but recently is work in progress,
-the page itself can be seen on https://objective-clarke-ff6c6b.netlify.app but currently does not provide functionality
 
 ### Notes
 * using webpack-cli 4.x does currently (02/2021) not support command `webpack-dev-server` to run in script, so instead workaround `webpack serve` was used following the issue https://github.com/webpack/webpack-dev-server/issues/2029
